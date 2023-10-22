@@ -426,6 +426,7 @@ img {
                             что бы на эту полоску не что не наехало*/
 
     position: relative;
+    z-index: 1;
 }
 
 .section-title::after {
@@ -587,6 +588,7 @@ img {
     padding: 93px 100px 88px 100px;
 
     position: absolute;
+    z-index: 2;
     top: 0;
     left: 0;
     transform: translateY(-100%);
