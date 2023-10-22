@@ -497,6 +497,7 @@ img {
     padding-top: 263px;
 
     padding-bottom: 223px; /*Сделали отступ что бы при добавлении текста, этот блок не наезжал на beneits*/
+    border: none;
 }
 
 .intro_title {
@@ -584,7 +585,6 @@ img {
     font-weight: 500;
     line-height: 42px;
     padding: 93px 100px 88px 100px;
-    border: none;
 
     position: absolute;
     top: 0;
