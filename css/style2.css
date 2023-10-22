@@ -1,8 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/
- v2.0-modified | 20110126
- License: none (public domain)
-*/
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -411,11 +406,14 @@ img {
 .wrapper {
     max-width: 1060px;
     margin: 0 auto;
+    padding: 0 15px; /*Что бы контент внутри не прилипал к краям при уменьшении окна*АДАПТИВ*/
 }
 
 .wrapper-full {
     max-width: 1262px;
     margin: 0 auto;
+    padding: 0 15px; /*Что бы контент внутри не прилипал к краям при уменьшении окна*АДАПТИВ*/
+
 }
 
 .section-title {
@@ -426,7 +424,6 @@ img {
                             что бы на эту полоску не что не наехало*/
 
     position: relative;
-    z-index: 1;
 }
 
 .section-title::after {
@@ -487,6 +484,36 @@ img {
     opacity: 0.75;
 }
 
+.header_burger {
+    width: 40px;
+    height: 28px;
+    position: relative;
+
+    display: none;
+}
+
+.burger_line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    border-radius: 5px;
+}
+
+.burger_line_first {
+    top: 0;
+}
+
+.burger_line_second {
+    top: 50%;
+    transform: translateY(-1px);
+}
+ 
+.burger_line_third {
+    bottom: 0;
+}
 /*Header style end*/
 
 /*Intro style start*/
@@ -498,7 +525,6 @@ img {
     padding-top: 263px;
 
     padding-bottom: 223px; /*Сделали отступ что бы при добавлении текста, этот блок не наезжал на beneits*/
-    border: none;
 }
 
 .intro_title {
@@ -586,12 +612,11 @@ img {
     font-weight: 500;
     line-height: 42px;
     padding: 93px 100px 88px 100px;
+    transform: translateY(-99%);
 
     position: absolute;
-    z-index: 2;
     top: 0;
     left: 0;
-    transform: translateY(-99%);
     background-color: white;
 }
 
@@ -628,7 +653,6 @@ img {
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 39px;
-    border: none;
 }
 
 .benefits_cart-button {
@@ -949,6 +973,74 @@ img {
 }
 /*Footer style end*/
 
+/*Media style start*/
+@media screen and (max-width: 770px) {
+    .header_burger {
+        display: block;
+    }
+
+    .header_nav {
+        width: 100%;
+        height: 100%;
+        position: fixed; /*position: fixed - всегда выравнивает относительно всего экрана*/
+        top: 0;
+        left: 0;
+        background-color: black;
+        z-index: 10;
+
+        padding: 75px;
+        transform: translateX(100%);
+        transition: .2s all linear;
+    }
+
+    .header_nav-active {
+        transform: translateX(0);
+    }
+
+    .header_item {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .header_item:last-child {
+        margin-bottom: 0;
+    }
+
+    .header_link {
+        font-size: 42px;
+        line-height: 48px;
+    }
+
+    .header_nav-close {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 11;
+    }
+
+    .header_nav-close-line {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        position: absolute;
+        top: 50%;
+    }
+
+    .header_nav-close-line:first-child {
+        transform: translateY(0px) rotate(45deg);
+    }
+
+    .header_nav-close-line:last-child {
+        transform: translateY(0px) rotate(-45deg);
+    }
+}
+
+
+/*Media style end*/
 
 
 /*fieldset - тег в html, предназначен для группировки элементов формы,
@@ -994,4 +1086,7 @@ img {
 а так же прописываем классу .videos_wrapper в css:
 position: relative;
 
+Как сделать адаптив на сайте:
+1. Задать падинги слева справа для всех врапперов-контейнеров
+2. Делаем адаптив для мобайл (на телефон) при экране менее 770px;
 */
